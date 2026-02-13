@@ -224,10 +224,16 @@ public class NumberPlayerDataSetting : TypedPlayerDataSetting<int>
         {
             if (!_isShown) return;
             _isShown = false;
-
-
-            PopupScreen.instance.GetTMP_InputField().characterLimit = 9;
+        
+            var screen = PopupScreen.instance;
+            if (screen == null) return;
+        
+            var input = screen.GetTMP_InputField();
+            if (input == null) return;
+        
+            input.characterLimit = 9;
         }
+
     }
 }
 
